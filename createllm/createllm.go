@@ -9,7 +9,7 @@ import (
 
 func main() {
 	// 외부 파일 읽기
-	jsonData, err := ioutil.ReadFile("/home/jasper/다운로드/workspace/scraping/data.json")
+	jsonData, err := ioutil.ReadFile("/home/jasper/다운로드/my-go-projects/scraping/data.json")
 	if err != nil {
 		log.Fatalf("Failed to read JSON file: %v", err)
 	}
