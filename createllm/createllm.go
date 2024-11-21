@@ -30,7 +30,7 @@ FROM /home/jasper/Llama-3-Open-Ko-8B-Q5_K_M.gguf
 TEMPLATE """{{- if .System }}
 <s>{{ .System }}</s>
 {{- end }}
-<s>Human:
+<s>사용자:
 {{ .Prompt }}</s>
 <s>Assistant:
 """
@@ -38,11 +38,10 @@ TEMPLATE """{{- if .System }}
 SYSTEM """
 %s
 
-A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions. 모든 대답은 한국어(Korean)으로 대답해줘.
+A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions. 모든 대답은 한국어(Korean)으로 대답하고 최대한 친절하고 길게 대답해줘
 """
 
 PARAMETER temperature 0.7
-PARAMETER num_predict 3000
 PARAMETER num_ctx 4096
 PARAMETER stop <s>
 PARAMETER stop </s>
