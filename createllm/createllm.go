@@ -17,7 +17,6 @@ func main() {
 	// 시스템 메시지 생성
 	systemMessage := fmt.Sprintf(`
 다음은 추가적인 지식과 설정입니다:
-
 %s
 
 이 정보를 포함하여 genian 제품에 대해 답변시 참조하여 주세요.
@@ -25,12 +24,12 @@ func main() {
 
 	// Modelfile 생성
 	modelfileContent := fmt.Sprintf(`
-FROM /home/jasper/Llama-3-Open-Ko-8B-Q5_K_M.gguf
+FROM /home/jasper/ggml-model-Q4_K_M.gguf
 
 TEMPLATE """{{- if .System }}
 <s>{{ .System }}</s>
 {{- end }}
-<s>사용자:
+<s>Human:
 {{ .Prompt }}</s>
 <s>Assistant:
 """
@@ -41,9 +40,7 @@ SYSTEM """
 A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions. 모든 대답은 한국어(Korean)으로 대답하고 최대한 친절하고 길게 대답해줘
 """
 
-PARAMETER temperature 0.3
-PARAMETER num_ctx 4096
-PARAMETER repeat_penalty 1.1
+PARAMETER temperature 0
 PARAMETER stop <s>
 PARAMETER stop </s>
 
